@@ -25,7 +25,4 @@ public class bus {
    public void setcapacity(int cap){
         this.capacity = cap;
    }
-   void displaybusinfo(){
-    System.out.println("Bus no : "+ busno +" AC : "+ ac +" Total Capacity : "+ capacity);
-   }
 }

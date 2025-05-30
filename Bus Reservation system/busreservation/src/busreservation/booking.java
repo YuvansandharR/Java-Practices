@@ -9,7 +9,7 @@ public class booking {
     Date date;
     
     booking(){
-         Scanner sc =  new Scanner(System.in);
+         Scanner  sc =  new Scanner(System.in);
          System.out.println("Enter your Name ");
             this.passengername = sc.nextLine();
          System.out.println("Enter bus no :");
@@ -25,19 +25,13 @@ public class booking {
                 e.printStackTrace();
             }
     }
-    public boolean isAvailable(ArrayList<bus> buses, ArrayList<booking>bookings){
-        int capacity = 0;
-        for(bus Bus:buses){
-            if(Bus.getBusno()==busno)
-            capacity=Bus.getCapacity();
-        }
-        int booked =0;
-        for(booking b :bookings){
-            if(b.busno == busno && b.date.equals(date)){
-                booked++;
-            }
+    public boolean isAvailable()throws Exception{
+        busdao busda = new busdao();
+        bookingdao bookingda = new bookingdao();
 
-        }
-        return booked<capacity?true:false;
+        int capacity = busda.getCapacity(busno);
+        int booked = bookingda.getbookedcount(busno,date);
+    
+        return booked<capacity;
     }
 }
