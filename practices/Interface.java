@@ -1,4 +1,3 @@
-package practices;
 
 interface animal {
     int mark = 20;
